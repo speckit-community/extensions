@@ -105,9 +105,13 @@ const ExtensionDetail: NextPage<ExtensionDetailProps> = ({
             </div>
           ) : (
             <div className="flex items-center gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-3 py-2 mb-4">
-              <FontAwesomeIcon icon={faExclamationTriangle} className="w-3.5 flex-shrink-0" />
+              <FontAwesomeIcon
+                icon={faExclamationTriangle}
+                className="w-3.5 flex-shrink-0"
+              />
               <span>
-                Community extension — Independently maintained. Use at your own discretion.{' '}
+                Community extension — Independently maintained. Use at your own
+                discretion.{' '}
                 <a
                   href="#security"
                   onClick={() => (window.location.hash = 'security')}

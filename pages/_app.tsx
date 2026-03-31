@@ -11,7 +11,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>SpecKit Extensions</title>
-        <meta name="description" content="Browse SpecKit community extensions" />
+        <meta
+          name="description"
+          content="Browse SpecKit community extensions"
+        />
         <link rel="icon" href="/favicon.webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
