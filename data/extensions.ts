@@ -161,9 +161,7 @@ export async function listExtensions(): Promise<Extension[]> {
 }
 
 /** T012: Get a single extension by ID */
-export async function getExtension(
-  id: string
-): Promise<Extension | undefined> {
+export async function getExtension(id: string): Promise<Extension | undefined> {
   const catalog = await loadCatalog()
   return catalog.extensions[id]
 }
@@ -187,9 +185,7 @@ export async function buildSearchIndex(): Promise<SearchIndexEntry[]> {
 }
 
 /** T014: Get recently updated extensions */
-export async function getRecentlyUpdated(
-  count: number
-): Promise<Extension[]> {
+export async function getRecentlyUpdated(count: number): Promise<Extension[]> {
   const catalog = await loadCatalog()
   return Object.values(catalog.extensions)
     .sort(
@@ -204,9 +200,7 @@ export async function getRecentlyUpdated(
 const starsCache = new Map<string, number>()
 
 /** Fetch stargazers_count for a GitHub repo. Returns null on failure. */
-export async function fetchRepoStars(
-  repoUrl: string
-): Promise<number | null> {
+export async function fetchRepoStars(repoUrl: string): Promise<number | null> {
   const match = repoUrl.match(/github\.com\/([^/]+\/[^/]+)/)
   if (!match) return null
 
@@ -226,7 +220,8 @@ export async function fetchRepoStars(
     })
     if (res.ok) {
       const data = await res.json()
-      const count = typeof data.stargazers_count === 'number' ? data.stargazers_count : 0
+      const count =
+        typeof data.stargazers_count === 'number' ? data.stargazers_count : 0
       starsCache.set(ownerRepo, count)
       return count
     }
@@ -339,9 +334,7 @@ export async function enrichExtensionsWithReleases(
 }
 
 /** Get extensions that declare a dependency on the given extension */
-export async function getDependents(
-  extensionId: string
-): Promise<Extension[]> {
+export async function getDependents(extensionId: string): Promise<Extension[]> {
   const catalog = await loadCatalog()
   const target = catalog.extensions[extensionId]
   if (!target) return []

@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-const CATALOG_UI_REPO_LINK =
-  'https://github.com/speckit-community/extensions'
+const CATALOG_UI_REPO_LINK = 'https://github.com/speckit-community/extensions'
 
 export const Footer: React.FC = () => {
   return (

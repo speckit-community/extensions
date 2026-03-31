@@ -3,7 +3,11 @@ import Head from 'next/head'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { ExtensionCard } from '../components/ExtensionCard'
-import { listExtensions, enrichExtensionsWithReleases, Extension } from '../data/extensions'
+import {
+  listExtensions,
+  enrichExtensionsWithReleases,
+  Extension,
+} from '../data/extensions'
 import { GetStaticProps } from 'next'
 
 interface AllExtensionsProps {
