@@ -1,0 +1,70 @@
+name: Build and Deploy
+on:
+  schedule:
+    - cron: '0 6 * * *' # Daily at 06:00 UTC
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+    inputs:
+      catalogCommitHash:
+        description: 'Commit hash of the spec-kit repository to use as the source for the build'
+        type: string
+  workflow_call:
+    inputs:
+      basePath:
+        description: 'Base path for the build, see https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath'
+        type: string
+      catalogCommitHash:
+        description: 'Commit hash of the spec-kit repository to use as the source for the build'
+        type: string
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: true
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install required packages
+        run: pnpm install --frozen-lockfile
+
+      - name: Update spec-kit submodule to latest
+        if: ${{ !inputs.catalogCommitHash }}
+        working-directory: data/spec-kit
+        run: |
+          git fetch origin main
+          git checkout origin/main
+
+      - name: Update spec-kit submodule to specific commit
+        if: ${{ inputs.catalogCommitHash }}
+        working-directory: data/spec-kit
+        run: |
+          git fetch origin ${{ inputs.catalogCommitHash }}
+          git checkout ${{ inputs.catalogCommitHash }}
+
+      - name: Build
+        run: pnpm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ inputs.basePath || '' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+            folder: out
