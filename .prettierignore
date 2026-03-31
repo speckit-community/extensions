@@ -1,0 +1,8 @@
+**/.next/**
+**/_next/**
+.github/
+bazel-*
+node_modules
+out/
+pnpm-lock.yaml
+styles/*.css
