@@ -2,6 +2,7 @@
 **/_next/**
 .github/
 bazel-*
+data/spec-kit/
 node_modules
 out/
 pnpm-lock.yaml

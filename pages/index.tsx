@@ -21,7 +21,11 @@ interface HomePageProps {
   featuredExtensions: Extension[]
 }
 
-const Home: NextPage<HomePageProps> = ({ searchIndex, recentExtensions, featuredExtensions }) => {
+const Home: NextPage<HomePageProps> = ({
+  searchIndex,
+  recentExtensions,
+  featuredExtensions,
+}) => {
   const router = useRouter()
   const [searchQueryInput, setSearchQueryInput] = useState<string>('')
   const searchRef = useRef<HTMLInputElement>(null)

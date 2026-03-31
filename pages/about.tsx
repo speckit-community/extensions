@@ -5,8 +5,7 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
 const SPECKIT_REPO_LINK = 'https://github.com/github/spec-kit'
-const CATALOG_UI_REPO_LINK =
-  'https://github.com/speckit-community/extensions'
+const CATALOG_UI_REPO_LINK = 'https://github.com/speckit-community/extensions'
 
 const About: NextPage = () => {
   return (
@@ -53,8 +52,11 @@ const About: NextPage = () => {
                 Spec Kit created by community members. They extend Spec Kit with
                 additional functionality such as custom templates, workflows,
                 integrations, and tooling. Each extension is maintained by its
-                author(s). <strong>Users should review an extension&apos;s source code
-                and documentation before installing it.</strong>
+                author(s).{' '}
+                <strong>
+                  Users should review an extension&apos;s source code and
+                  documentation before installing it.
+                </strong>
               </p>
             </section>
 
@@ -66,18 +68,13 @@ const About: NextPage = () => {
               </h2>
               <div className="space-y-3 text-gray-700">
                 <p>
-                  <strong>
-                    Verified Extensions
-                  </strong>{' '}
-                  have been reviewed by the catalog maintainers for quality and
-                  compatibility.
+                  <strong>Verified Extensions</strong> have been reviewed by the
+                  catalog maintainers for quality and compatibility.
                 </p>
                 <p>
-                  <strong>
-                    Community Extensions
-                  </strong>{' '}
-                  have not yet been reviewed. They are independently maintained
-                  and should be evaluated by users before use.
+                  <strong>Community Extensions</strong> have not yet been
+                  reviewed. They are independently maintained and should be
+                  evaluated by users before use.
                 </p>
               </div>
             </section>
