@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { SITE_URL } from '../lib/seo'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import React, { useEffect, useRef, useState } from 'react'
@@ -44,14 +45,35 @@ const Home: NextPage<HomePageProps> = ({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <title>SpecKit Extensions</title>
-        <link rel="icon" href="/favicon.webp" />
-      </Head>
+      <NextSeo
+        title="SpecKit Extensions — Browse Community Extensions"
+        titleTemplate="%s"
+        description="Discover community extensions for Spec Kit, the specification-driven development toolkit. Browse, search, and install extensions to enhance your SDD workflow."
+        canonical={SITE_URL}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'SpecKit Extensions',
+            url: SITE_URL,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${SITE_URL}/search?q={search_term_string}`,
+              'query-input': 'required name=search_term_string',
+            },
+          }),
+        }}
+      />
 
       <Header />
       <main className="m-4 l:m-0 flex-1">
         <div className="max-w-4xl w-4xl mx-auto mt-8 flex flex-col items-center">
+          <h1 className="text-3xl font-bold text-gray-900">
+            SpecKit Community Extensions
+          </h1>
           <form onSubmit={handleSubmitSearch} className="contents">
             <input
               ref={searchRef}

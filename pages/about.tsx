@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { SITE_URL } from '../lib/seo'
 import Link from 'next/link'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
@@ -10,13 +11,11 @@ const CATALOG_UI_REPO_LINK = 'https://github.com/speckit-community/extensions'
 const About: NextPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <title>About This Catalog | SpecKit Extensions</title>
-        <meta
-          name="description"
-          content="Learn about the SpecKit Community Extensions Catalog, how extensions are managed, and how to report issues."
-        />
-      </Head>
+      <NextSeo
+        title="About This Catalog"
+        description="Learn about the SpecKit Community Extensions Catalog, how extensions are managed, and how to report issues."
+        canonical={`${SITE_URL}/about`}
+      />
 
       <Header />
       <main className="flex-1">

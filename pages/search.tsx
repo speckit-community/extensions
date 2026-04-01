@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { SITE_URL } from '../lib/seo'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import React, { useEffect, useState } from 'react'
@@ -57,6 +58,13 @@ const Search: NextPage<SearchPageProps> = ({ searchIndex }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <NextSeo
+        title="Search Extensions"
+        description="Search the SpecKit community extensions catalog."
+        canonical={`${SITE_URL}/search`}
+        noindex={true}
+        nofollow={true}
+      />
       <Header />
       <main className="m-4 l:m-0 flex-1">
         <div className="max-w-4xl w-4xl mx-auto mt-8 flex flex-col items-center">
@@ -72,7 +80,7 @@ const Search: NextPage<SearchPageProps> = ({ searchIndex }) => {
             />
           </form>
           <div className="w-full max-w-4xl">
-            <h2 className="font-bold text-lg">
+            <h1 className="font-bold text-lg">
               Search results
               {getSearchQuery() && searchResults && (
                 <span className="text-gray-600 font-normal ml-2">
@@ -80,7 +88,7 @@ const Search: NextPage<SearchPageProps> = ({ searchIndex }) => {
                   {searchResults.length === 1 ? 'extension' : 'extensions'})
                 </span>
               )}
-            </h2>
+            </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
               {searchResults && searchResults.length ? (
                 searchResults.map((ext) => (

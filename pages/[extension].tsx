@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { SITE_URL, OG_IMAGE_URL } from '../lib/seo'
 import Link from 'next/link'
 import { Header, DOCS_LINK } from '../components/Header'
 import { Footer } from '../components/Footer'
@@ -62,10 +63,49 @@ const ExtensionDetail: NextPage<ExtensionDetailProps> = ({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <title>{`SpecKit Extensions | ${extension.name}`}</title>
-        <meta name="description" content={extension.description} />
-      </Head>
+      <NextSeo
+        title={extension.name}
+        description={extension.description}
+        canonical={`${SITE_URL}/${extension.id}`}
+        openGraph={{
+          title: `${extension.name} | SpecKit Extensions`,
+          description: extension.description,
+          url: `${SITE_URL}/${extension.id}`,
+          type: 'website',
+          images: [
+            {
+              url: OG_IMAGE_URL,
+              width: 1200,
+              height: 630,
+              alt: `${extension.name} — SpecKit Extension`,
+            },
+          ],
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: extension.name,
+            description: extension.description,
+            applicationCategory: 'DeveloperApplication',
+            operatingSystem: 'Cross-platform',
+            author: {
+              '@type': 'Person',
+              name: extension.author,
+            },
+            softwareVersion: extension.releaseVersion || extension.version,
+            url: `${SITE_URL}/${extension.id}`,
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD',
+            },
+          }),
+        }}
+      />
 
       <Header />
       <main className="flex-1">

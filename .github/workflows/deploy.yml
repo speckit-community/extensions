@@ -68,3 +68,14 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
             folder: out
+
+      - name: Verify no custom domain CNAME on gh-pages
+        if: github.event_name != 'pull_request'
+        run: |
+          git fetch origin gh-pages
+          if git show origin/gh-pages:CNAME 2>/dev/null; then
+            echo "::error::Unexpected CNAME file found on gh-pages branch. This will cause a redirect away from speckit-community.github.io/extensions/. Remove it from GitHub Settings → Pages → Custom domain."
+            exit 1
+          else
+            echo "✓ No CNAME file on gh-pages — site will be served at speckit-community.github.io/extensions/"
+          fi

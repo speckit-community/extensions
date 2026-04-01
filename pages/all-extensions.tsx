@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { SITE_URL } from '../lib/seo'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { ExtensionCard } from '../components/ExtensionCard'
@@ -17,13 +18,32 @@ interface AllExtensionsProps {
 const AllExtensions: NextPage<AllExtensionsProps> = ({ extensions }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <title>All Extensions - SpecKit Extensions</title>
-        <meta
-          name="description"
-          content="Browse all SpecKit community extensions"
-        />
-      </Head>
+      <NextSeo
+        title="All Extensions"
+        description="Browse all SpecKit community extensions — search, filter, and discover tools to enhance your specification-driven development workflow."
+        canonical={`${SITE_URL}/all-extensions`}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'All SpecKit Extensions',
+            url: `${SITE_URL}/all-extensions`,
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: extensions.length,
+              itemListElement: extensions.map((ext, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                url: `${SITE_URL}/${ext.id}`,
+                name: ext.name,
+              })),
+            },
+          }),
+        }}
+      />
 
       <Header />
       <main className="m-4 flex-1">
