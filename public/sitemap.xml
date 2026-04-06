@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://speckit-community.github.io/extensions</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/all-extensions</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/about</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -49,14 +49,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://speckit-community.github.io/extensions/cognitive-squad</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://speckit-community.github.io/extensions/conduct</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://speckit-community.github.io/extensions/conduct</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://speckit-community.github.io/extensions/critique</loc>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -75,6 +75,18 @@
   <url>
     <loc>https://speckit-community.github.io/extensions/extensify</loc>
     <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/fix-findings</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/fixit</loc>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -169,6 +181,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://speckit-community.github.io/extensions/qa</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://speckit-community.github.io/extensions/ralph</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -177,6 +195,18 @@
   <url>
     <loc>https://speckit-community.github.io/extensions/reconcile</loc>
     <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/repoindex</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/retro</loc>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -193,8 +223,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://speckit-community.github.io/extensions/ship</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://speckit-community.github.io/extensions/speckit-utils</loc>
     <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/staff-review</loc>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -205,14 +247,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://speckit-community.github.io/extensions/sync</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://speckit-community.github.io/extensions/superb</loc>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://speckit-community.github.io/extensions/understanding</loc>
-    <lastmod>2026-03-07</lastmod>
+    <loc>https://speckit-community.github.io/extensions/sync</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

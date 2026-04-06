@@ -1,1 +1,0 @@
-- [ ] T001 [US1] Create script that prints 'Hello hooks!' in hello.py
