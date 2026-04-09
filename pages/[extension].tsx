@@ -240,7 +240,8 @@ const ExtensionDetail: NextPage<ExtensionDetailProps> = ({
                     </a>
                   </p>
                   <code className="block text-xs bg-gray-50 rounded p-2 font-mono break-all">
-                    specify extension add --from {extension.download_url}
+                    specify extension add {extension.id} --from{' '}
+                    {extension.download_url}
                   </code>
                 </SidebarSection>
 
