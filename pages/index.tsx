@@ -155,7 +155,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const [searchIndex, recentRaw, featuredRaw] = await Promise.all([
     buildSearchIndex(),
     getRecentlyUpdated(10),
-    getTopExtensionsByStars(6),
+    getTopExtensionsByStars(8),
   ])
   const [recentExtensions, featuredExtensions] = await Promise.all([
     enrichExtensionsWithReleases(recentRaw),

@@ -179,7 +179,7 @@ export async function buildSearchIndex(): Promise<SearchIndexEntry[]> {
     updatedAt: ext.updated_at,
     verified: ext.verified,
     commands: ext.provides.commands,
-    hooks: ext.provides.hooks,
+    hooks: ext.provides.hooks ?? 0,
     license: ext.license,
   }))
 }
