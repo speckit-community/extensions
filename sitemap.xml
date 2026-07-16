@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://speckit-community.github.io/extensions</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/all-extensions</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/about</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -81,6 +81,12 @@
   <url>
     <loc>https://speckit-community.github.io/extensions/azure-devops</loc>
     <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://speckit-community.github.io/extensions/bdd</loc>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -158,7 +164,7 @@
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/coding-standards-drift-control</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -241,6 +247,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://speckit-community.github.io/extensions/figma-starter</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://speckit-community.github.io/extensions/fix-findings</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -266,7 +278,7 @@
   </url>
   <url>
     <loc>https://speckit-community.github.io/extensions/gates</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
