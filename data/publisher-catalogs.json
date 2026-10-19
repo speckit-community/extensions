@@ -1,0 +1,12 @@
+{
+  "https://github.com/electrohire/spec-kit-aee": {
+    "name": "electrohire",
+    "url": "https://raw.githubusercontent.com/electrohire/spec-kit-aee/main/catalog.json",
+    "documentation": "https://github.com/electrohire/spec-kit-aee#installation"
+  },
+  "https://github.com/electrohire/spec-kit-evaluator": {
+    "name": "electrohire",
+    "url": "https://raw.githubusercontent.com/electrohire/spec-kit-aee/main/catalog.json",
+    "documentation": "https://github.com/electrohire/spec-kit-aee#installation"
+  }
+}
