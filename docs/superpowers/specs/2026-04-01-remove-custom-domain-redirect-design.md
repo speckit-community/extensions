@@ -44,12 +44,12 @@ If a DNS CNAME record exists pointing `extensions.speckit-community.com` to `spe
 
 ## Changes Required
 
-| Layer | Action | Who |
-|-------|--------|-----|
-| GitHub Settings → Pages | Clear custom domain field | Repo admin (manual) |
-| `gh-pages` branch | Delete `CNAME` file (or let next deploy clean it) | Automated via deploy or manual push |
-| `.github/workflows/deploy.yml` | Add optional CNAME verification step | Code change (PR) |
-| DNS | Remove `extensions.speckit-community.com` record | DNS admin (manual, out of scope) |
+| Layer                          | Action                                            | Who                                 |
+| ------------------------------ | ------------------------------------------------- | ----------------------------------- |
+| GitHub Settings → Pages        | Clear custom domain field                         | Repo admin (manual)                 |
+| `gh-pages` branch              | Delete `CNAME` file (or let next deploy clean it) | Automated via deploy or manual push |
+| `.github/workflows/deploy.yml` | Add optional CNAME verification step              | Code change (PR)                    |
+| DNS                            | Remove `extensions.speckit-community.com` record  | DNS admin (manual, out of scope)    |
 
 ## Out of Scope
 
