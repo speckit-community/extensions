@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer'
 import { Badges } from '../components/Badges'
 import { CopyCode } from '../components/CopyCode'
 import { ExtensionTabs } from '../components/ExtensionTabs'
+import publisherCatalogs from '../data/publisher-catalogs.json'
 import {
   listExtensions,
   getExtension,
@@ -60,6 +61,12 @@ const ExtensionDetail: NextPage<ExtensionDetailProps> = ({
   manifest,
 }) => {
   const maintainer = getMaintainerFromRepo(extension.repository)
+  const publisherCatalog = (
+    publisherCatalogs as Record<
+      string,
+      { name: string; url: string; documentation: string }
+    >
+  )[extension.repository.replace(/\/$/, '')]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -240,9 +247,47 @@ const ExtensionDetail: NextPage<ExtensionDetailProps> = ({
                     </a>
                   </p>
                   <code className="block text-xs bg-gray-50 rounded p-2 font-mono break-all">
-                    specify extension add {extension.id} --from{' '}
-                    {extension.download_url}
+                    specify extension add {extension.id}
+                    {!publisherCatalog && ` --from ${extension.download_url}`}
                   </code>
+                  {publisherCatalog && (
+                    <div className="mt-2 text-xs text-gray-600 space-y-2">
+                      <p>
+                        First register the publisher catalog once per project.
+                        Specify’s default community catalog is discovery-only.
+                        Review the{' '}
+                        <a
+                          href={publisherCatalog.url}
+                          className="text-link-color underline"
+                        >
+                          publisher catalog
+                        </a>{' '}
+                        before selecting it as an installation source:
+                      </p>
+                      <code className="block bg-gray-50 rounded p-2 font-mono break-all">
+                        specify extension catalog add {publisherCatalog.url}{' '}
+                        --name {publisherCatalog.name} --install-allowed
+                      </code>
+                      <p>
+                        Already using an organization catalog? Add this
+                        extension there instead. See{' '}
+                        <a
+                          href={publisherCatalog.documentation}
+                          className="text-link-color underline"
+                        >
+                          setup and dependency details
+                        </a>
+                        .
+                      </p>
+                      {extension.id === 'aee' && (
+                        <p>
+                          AEE automatically provisions its engine and Python
+                          dependencies on first use; assess or compose also
+                          installs the Evaluator companion when missing.
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </SidebarSection>
 
                 {/* Links */}
@@ -399,9 +444,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   let readmeContent: string | null = null
   if (extension.documentation) {
     try {
-      const rawUrl = extension.documentation
-        .replace('github.com', 'raw.githubusercontent.com')
-        .replace('/blob/', '/')
+      const documentationUrl = new URL(extension.documentation)
+      const rawUrl =
+        documentationUrl.hostname === 'github.com' &&
+        /^\/[^/]+\/[^/]+\/?$/.test(documentationUrl.pathname) &&
+        documentationUrl.hash.toLowerCase() === '#readme'
+          ? `${extension.repository.replace('github.com', 'raw.githubusercontent.com').replace(/\/$/, '')}/main/README.md`
+          : extension.documentation
+              .replace('github.com', 'raw.githubusercontent.com')
+              .replace('/blob/', '/')
       const res = await fetch(rawUrl, { signal: AbortSignal.timeout(5000) })
       if (res.ok) {
         readmeContent = await res.text()
