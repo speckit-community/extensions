@@ -44,6 +44,20 @@ The "Highlighted extensions" shown on the homepage are the top 6 extensions rank
 
 ## Contributing
 
+### Publisher catalog installation instructions
+
+`data/publisher-catalogs.json` lists publisher-maintained installation catalogs
+by extension repository. A listed extension shows `specify extension add <id>`
+as its primary command, together with the required one-time catalog registration
+and an explicit explanation that the default community catalog is discovery-only.
+Other extensions retain the direct archive command. Only add a publisher catalog
+after checking its entries and release digests; listing it here does not mark an
+extension as verified or change the CLI's trust configuration.
+
+The AEE catalog supplies AEE and Evaluator. AEE provisions its Python engine and
+composer dependencies on first use and its Evaluator companion on assess/compose.
+The publisher catalog must be published before these instructions are deployed.
+
 Contributions are welcome! See the [GitHub issues](https://github.com/speckit-community/extensions/issues) for open tasks.
 
 ## License

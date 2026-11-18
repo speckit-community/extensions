@@ -8,21 +8,30 @@ const ROOT = join(__dirname, '..')
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/extensions'
 const SITE_URL = `https://speckit-community.github.io${BASE_PATH}`
 
-const catalogPath = join(ROOT, 'data', 'spec-kit', 'extensions', 'catalog.community.json')
+const catalogPath = join(
+  ROOT,
+  'data',
+  'spec-kit',
+  'extensions',
+  'catalog.community.json'
+)
 const catalog = JSON.parse(readFileSync(catalogPath, 'utf-8'))
 const extensions = Object.values(catalog.extensions)
 const today = new Date().toISOString().split('T')[0]
 
 const staticPages = [
   { loc: '', changefreq: 'daily', priority: '1.0', lastmod: today },
-  { loc: '/all-extensions', changefreq: 'weekly', priority: '0.6', lastmod: today },
+  {
+    loc: '/all-extensions',
+    changefreq: 'weekly',
+    priority: '0.6',
+    lastmod: today,
+  },
   { loc: '/about', changefreq: 'monthly', priority: '0.3', lastmod: today },
 ]
 
 const extensionPages = extensions.map((ext) => {
-  const lastmod = ext.updated_at
-    ? ext.updated_at.split('T')[0]
-    : today
+  const lastmod = ext.updated_at ? ext.updated_at.split('T')[0] : today
   return {
     loc: `/${ext.id}`,
     changefreq: 'weekly',

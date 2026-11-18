@@ -47,6 +47,7 @@ Expected: `null` or empty string — confirms no custom domain is configured.
 Remove the orphaned CNAME file that causes the redirect.
 
 **Files:**
+
 - Delete: `CNAME` on the `gh-pages` branch
 
 - [ ] **Step 1: Check out `gh-pages`, delete CNAME, and push**
@@ -87,6 +88,7 @@ Expected: `OK: CNAME removed`
 Add a post-deploy check in the GitHub Actions workflow that warns if a CNAME file appears on `gh-pages` after deployment.
 
 **Files:**
+
 - Modify: `.github/workflows/deploy.yml:66-71` (add step after the deploy step)
 
 - [ ] **Step 1: Add the verification step to `deploy.yml`**
@@ -94,17 +96,16 @@ Add a post-deploy check in the GitHub Actions workflow that warns if a CNAME fil
 Edit `.github/workflows/deploy.yml` — append this step after the existing "Deploy to GitHub Pages" step (after line 71):
 
 ```yaml
-
-      - name: Verify no custom domain CNAME on gh-pages
-        if: github.event_name != 'pull_request'
-        run: |
-          git fetch origin gh-pages
-          if git show origin/gh-pages:CNAME 2>/dev/null; then
-            echo "::error::Unexpected CNAME file found on gh-pages branch. This will cause a redirect away from speckit-community.github.io/extensions/. Remove it from GitHub Settings → Pages → Custom domain."
-            exit 1
-          else
-            echo "✓ No CNAME file on gh-pages — site will be served at speckit-community.github.io/extensions/"
-          fi
+- name: Verify no custom domain CNAME on gh-pages
+  if: github.event_name != 'pull_request'
+  run: |
+    git fetch origin gh-pages
+    if git show origin/gh-pages:CNAME 2>/dev/null; then
+      echo "::error::Unexpected CNAME file found on gh-pages branch. This will cause a redirect away from speckit-community.github.io/extensions/. Remove it from GitHub Settings → Pages → Custom domain."
+      exit 1
+    else
+      echo "✓ No CNAME file on gh-pages — site will be served at speckit-community.github.io/extensions/"
+    fi
 ```
 
 The full deploy.yml after the edit should look like:
@@ -179,7 +180,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            folder: out
+          folder: out
 
       - name: Verify no custom domain CNAME on gh-pages
         if: github.event_name != 'pull_request'
